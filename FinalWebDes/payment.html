@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Cinema Ticket Purchase</title>   
+  <link rel="stylesheet" href="css/payment.css" type="text/css" media="all" />
+
+</head>
+
+</head>
+<body>
+  <h1>Cinema Book Purchase</h1>
+  
+  <form onsubmit="event.preventDefault(); bookTickets();">
+    <label for="movie", style="color:#ffffff;">Select a movie:</label><br></br>
+    <select id="movie" name="movie" onchange="calculatePrice()">
+      <option value="movie1">Insidious: The Red Door | $10 per ticket</option>b></b></option>
+      <option value="movie2">Detective Conan: Black Iron Submarine | $12 per ticket</option>
+      <option value="movie3">Kandahar | $12 per ticket</option>
+      <option value="movie1">The Flash | $10 per ticket</option>
+      <option value="movie2">Little Mermaid | $12 per ticket</option>
+      <option value="movie3">Shin Masked Ridier | $15 per ticket</option>
+    </select><br></br>
+    <form onsubmit="event.preventDefault(); bookTickets();">
+        <label for="date", style="color:#ffffff;">Select a date:</label><br></br>
+        <select id="date" name="date">
+          <option value="movie1">Insidious: The Red Door | July 05 - 11:00 am</option>b></b></option>
+          <option value="movie1">Insidious: The Red Door | July 05 - 5:00 pm</option>b></b></option>
+          <option value="movie1">Insidious: The Red Door | July 05 - 10:00 pm</option>b></b></option>
+          <option value="movie2">Detective Conan: Black Iron Submarine | July 06 - 9:00 am</option>
+          <option value="movie2">Detective Conan: Black Iron Submarine | July 06 - 3:00 pm</option>
+          <option value="movie2">Detective Conan: Black Iron Submarine | July 06 - 9:00 pm</option>
+          <option value="movie3">Kandahar | July 08 - 12:00 am</option>
+          <option value="movie3">Kandahar | July 08 - 8:00 am</option>
+          <option value="movie3">Kandahar | July 08 - 11am</option>
+          <option value="movie1">The Flash | July 10 - 11:00 am</option>
+          <option value="movie1">The Flash | July 10 - 5:00 pm</option>
+          <option value="movie1">The Flash | July 10 - 10:00 pm</option>
+          <option value="movie2">Little Mermaid | July 01 - 9:00 am</option>
+          <option value="movie2">Little Mermaid | July 01 - 3:00 pm</option>
+          <option value="movie2">Little Mermaid | July 01 - 9:00 pm</option>
+          <option value="movie3">Shin Masked Ridier | July 15 - 11:00 am</option>
+          <option value="movie3">Shin Masked Ridier | July 15 - 5:00 pm</option>
+          <option value="movie3">Shin Masked Ridier | July 15 - 10:00 pm</option>
+        </select><br></br>
+    
+    
+    <label for="seats", style="color:#ffffff;">Number of seats:</label><br></br>
+    <input type="number" id="seats" name="seats" min="1" max="10" required onchange="calculatePrice()">
+    
+    <label for="name", style="color:#ffffff;">Your name:</label><br></br>
+    <input type="text" id="name" name="name" required>
+    
+    <label for="email", style="color:#ffffff;">Your email:</label><br></br>
+    <input type="email" id="email" name="email" required>
+    
+    <label for="card", style="color:#ffffff;">Credit Card Number:</label><br></br>
+    <input type="text" id="card" name="card" required>
+    
+    <label for="expiry", style="color:#ffffff;">Expiration Date:</label><br></br>
+    <input type="text" id="expiry" name="expiry" required>
+    
+    <label for="cvv", style="color:#ffffff;">CVV:</label><br></br>
+    <input type="text" id="cvv" name="cvv" required><br></br>
+    
+    <br><input type="submit" value="Pay and Book", style="color:#131212;"><br></br>
+
+    <div>
+        <label style="color:#ffffff;">Total Price:</label>
+        <span id="price", style="color:#ffffff;"></span>
+      </div>
+  </form>
+  <script>
+    function calculatePrice() {
+      var movieSelect = document.getElementById('movie');
+      var seatsInput = document.getElementById('seats');
+      var priceLabel = document.getElementById('price');
+
+      var selectedMovie = movieSelect.value;
+      var numSeats = parseInt(seatsInput.value);
+      
+      var price = 0;
+      
+      switch (selectedMovie) {
+        case 'movie1':
+          price = 10;
+          break;
+        case 'movie2':
+          price = 12;
+          break;
+        case 'movie3':
+          price = 15;
+          break;
+      }
+      
+      var totalPrice = price * numSeats;
+      
+      priceLabel.innerHTML = '$' + totalPrice;
+    }
+    
+    function bookTickets() {
+      // Get form values
+      var movie = document.getElementById('movie').value;
+      var seats = document.getElementById('seats').value;
+      var name = document.getElementById('name').value;
+      var email = document.getElementById('email').value;
+      var card = document.getElementById('card').value;
+      var expiry = document.getElementById('expiry').value;
+      var cvv = document.getElementById('cvv').value;
+      
+      // TODO: Handle booking logic (e.g., send data to server, validate payment details)
+      
+      // Reset form
+      document.querySelector('form').reset();
+      
+      // Display confirmation message
+      alert('Thank you for booking! Your tickets have been reserved. Please check your email.');
+    }
+  </script>
+</body>
+</html>

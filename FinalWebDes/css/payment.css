@@ -1,0 +1,36 @@
+body {
+  background:url('images/body-bg.gif');
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 20px;
+}
+h1 {
+  text-align: center;
+  color:#04c76c;
+}
+
+form {
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="number"],
+select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+input[type="submit"] {
+  width: 100%;
+  padding: 10px;
+  background-color: #f2a223;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
